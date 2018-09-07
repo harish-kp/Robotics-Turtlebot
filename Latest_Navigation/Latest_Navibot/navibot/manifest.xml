@@ -1,0 +1,22 @@
+<package>
+  <description brief="navibot">
+
+     navibot
+
+  </description>
+  <author>Turtlebot</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/navibot</url>
+  <depend package="geometry_msgs"/>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+<depend package="std_msgs"/>
+<depend package="cv_bridge"/>
+<depend package="opencv2"/>
+<depend package="image_transport"/>
+
+</package>
+
+

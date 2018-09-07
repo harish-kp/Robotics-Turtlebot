@@ -1,0 +1,35 @@
+%YAML:1.0
+Red1.Low.H  : 0
+Red1.High.H : 10 
+Red1.Low.S  : 60
+Red1.High.S : 255
+Red1.Low.V  : 60
+Red1.High.V : 255
+ 
+Red2.Low.H  : 160
+Red2.High.H : 180
+Red2.Low.S  : 60
+Red2.High.S : 255
+Red2.Low.V  : 60
+Red2.High.V : 255
+ 
+Green.Low.H  : 40
+Green.High.H : 90
+Green.Low.S  : 70 
+Green.High.S : 255
+Green.Low.V  : 0 
+Green.High.V : 255
+
+Blue.Low.H   : 100 
+Blue.High.H  : 140
+Blue.Low.S   : 130 
+Blue.High.S  : 210
+Blue.Low.V   : 0 
+Blue.High.V  : 255
+ 
+Yellow.Low.H  : 20
+Yellow.High.H : 40
+Yellow.Low.S  : 70
+Yellow.High.S : 255
+Yellow.Low.V  : 0 
+Yellow.High.V : 255
