@@ -4,6 +4,7 @@ project(cylinder)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+find_package(OpenCV 3 REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport
@@ -122,6 +123,7 @@ catkin_package(
 # include_directories(include)
 include_directories(
     include/cylinder/
+    ${OpenCV_INCLUDE_DIRS}
     ${catkin_INCLUDE_DIRS}
 )
 
@@ -148,13 +150,15 @@ add_dependencies(colorDetection ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXP
 ## Specify libraries to link a library or executable target against
 target_link_libraries(cylinder_node cylinder
   ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
 )
 target_link_libraries(colorSegmentation
   ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
 )
 target_link_libraries(colorDetection
   ${catkin_LIBRARIES}
-  ${OPENCV_LIBS}
+  ${OpenCV_LIBS}
 )
 
 

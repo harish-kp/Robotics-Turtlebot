@@ -17,7 +17,8 @@
  *
  */
 // ROS
-#include <ros/ros.h>
+#include <iostream>
+#include <string>
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
 #include <sensor_msgs/image_encodings.h>
@@ -522,6 +523,7 @@ std::pair<float,float> getCov(float Zrobot, float Xrobot)
     {
         int covZ = -1;
         int covX = -1;
+        //std::cout << "Zrobot";
         std::cout << "comparison" << Zrobot << " " << Xrobot << std::endl; 
         if ( Zrobot < 0.80 )
             covZ = 0;
@@ -566,6 +568,7 @@ std::pair<float,float> getCov(float Zrobot, float Xrobot)
         cv_bridge::CvImagePtr rgbPtr,depthPtr;
         std::vector<Tape> tapes;
         std::vector<Cylinder> cylinders;
+	//std::cout << "Callback";
         try
         {
             rgbPtr   = cv_bridge::toCvCopy(rgbImage, sensor_msgs::image_encodings::TYPE_8UC3);
@@ -582,6 +585,7 @@ std::pair<float,float> getCov(float Zrobot, float Xrobot)
         cv::imshow(RGB_WINDOW, rgbPtr->image);
         cv::imshow(DEPTH_WINDOW, depthPtr->image);
         cv::Mat imgHSV;
+
         cv::waitKey(3);
         cvtColor(rgbPtr->image, imgHSV, cv::COLOR_BGR2HSV); //Convert the captured frame from BGR to HSV
         std::vector<cv::Rect> redAreas = getAreasbyColor(imgHSV,RED);
@@ -599,6 +603,7 @@ std::pair<float,float> getCov(float Zrobot, float Xrobot)
             int y1 = round(depthI.rows/2 * 0.3);
             int y2 = round(depthI.rows/2 * 0.7);
             double depth = 0.0;
+	    
             if(x1>0 && x2>0 && y2 > 0 && y1 > 0)
             {
                 cv::Rect RoI(x1,y1, x2 - x1, y2 - y1);
@@ -765,6 +770,7 @@ std::pair<float,float> getCov(float Zrobot, float Xrobot)
         }
         arrayMsg.header.stamp = ros::Time::now();
         arrayMsg.header.frame_id = "cylinderTopic";
+	
         cyl_pub_.publish(arrayMsg);
         
 
@@ -884,6 +890,7 @@ int main(int argc, char** argv)
     ros::init(argc, argv, "image_converter");
     std::string strSettingsFile =argv[1];
     cv::FileStorage fsSettings(strSettingsFile.c_str(), cv::FileStorage::READ);
+    std::cout << "*****************\n";
     if(!fsSettings.isOpened())
     {
         std::cerr << std::endl << "Wrong path to settings. Path must be absolut or relative to package directory." << std::endl;
