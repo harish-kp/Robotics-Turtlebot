@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 
 fig, ax = plt.subplots(figsize=(5, 3))
 
-with open('data.txt', 'rb') as csvfile:
+with open('measurement.txt', 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar=',', quoting=csv.QUOTE_NONNUMERIC)
     x = []
     y = []
