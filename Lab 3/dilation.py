@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 img = cv2.imread('dilation.png', 0)
 # rows,col,ch = img.shape
-img = img[228:248, 1:441]
+# img = img[228:248, 1:441, 1:3]
 # rows,col,ch = img.shape
 # kernel = np.ones((5,5),np.uint8)
 # edge = cv2.Canny(img, 300, 445)
